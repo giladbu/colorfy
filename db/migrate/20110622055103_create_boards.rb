@@ -1,7 +1,7 @@
 class CreateBoards < ActiveRecord::Migration
   def self.up
     create_table :boards do |t|
-      t.integer, :step
+      t.integer :step
       t.integer :size
 
       t.timestamps
