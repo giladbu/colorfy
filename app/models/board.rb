@@ -1,6 +1,7 @@
 class Board < ActiveRecord::Base
   has_many :cells, :order => [:x, :y]
-  validates_numericality_of :size, {:greater_than_or_equal_to => 0}
+  validates_numericality_of :size,
+    {:greater_than_or_equal_to => 0, :less_than_or_equal_to => 16}
 
   after_create :create_cells
 

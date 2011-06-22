@@ -1,4 +1,4 @@
 - @board.cells.each do |cell|
   - klass = cell_class(@board, cell)
-  %div.cell{:class => klass}
+  %div.cell{:class => klass, :style => "width: #{cell_width(@board)}px;"}
     &nbsp;
