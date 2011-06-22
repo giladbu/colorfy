@@ -44,3 +44,8 @@
 .green {
   background-color: green;
 }
+
+.rounded {
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

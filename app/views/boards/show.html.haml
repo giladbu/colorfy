@@ -1,6 +1,9 @@
 %p{:id=>"notice"}= notice
-.cells.span-16.prepend-4
-  - @board.cells.each do |cell|
-    - klass = cell_class(@board, cell)
-    %div.cell{:class => klass}
-      &nbsp;
+.prepend-9.span-6.append-9
+  Pick Color:
+  - Cell::COLORS.each do |color|
+    = link_to board_path(@board), :method => :put, :remote => true do
+      .span-1.rounded.bordered{:class => color.to_s}
+        &nbsp;
+
+= render "board"
