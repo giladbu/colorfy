@@ -1,8 +1,10 @@
 %p{:id=>"notice"}= notice
 .prepend-9.span-6.append-9
   Pick Color
-  - Cell::COLORS.each do |color|
-    = link_to board_path(@board), :method => :put, :remote => true do
+  - Cell::COLORS.each_with_index do |color, index|
+    = form_for @board, :method => :put, :remote => true do |f|
+      = hidden_field_tag :color, color
       .span-1.rounded.bordered{:class => color.to_s}
-        &nbsp;
-= render "board"
+        = image_submit_tag 'button.png'
+.cells.span-16.prepend-4.prepend-top
+  = render "board"

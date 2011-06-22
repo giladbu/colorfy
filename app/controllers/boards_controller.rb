@@ -20,12 +20,13 @@ class BoardsController < ApplicationController
   end
 
   # PUT /boards/1
+  # PUT /boards/1.js
   def update
     @board = Board.find(params[:id])
-    if @board.update_attributes(params[:board])
-      redirect_to(@board, :notice => 'Board was successfully updated.')
-    else
-      redirect_to(@board, :notice => 'Board was successfully updated.')
+    @board = @board.move(params[:color])
+    respond_to do |format|
+      format.html { redirect_to(@board) }
+      format.js {}
     end
   end
 end

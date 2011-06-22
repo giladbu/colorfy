@@ -1,0 +1,5 @@
+$('.cells').html("<%= escape_javascript(render "board") %>");
+colorfy.update_height();
+if (<%= @board.done? %>) {
+   alert('done in <%= @board.step %> steps!');
+}

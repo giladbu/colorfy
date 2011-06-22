@@ -4,15 +4,30 @@ class Board < ActiveRecord::Base
 
   after_create :create_cells
 
+  def done?
+    p cells.group(:color).count
+    cells.group(:color).count.size == 1
+  end
+
   def move(color)
+    if color.is_a?(String) || color.is_a?(Symbol)
+      color = Cell.color_index(color.to_sym)
+    end
     self.step= self.step + 1
     queue = [cells.first]
+    visited = []
     while queue.present? do
       cell = queue.shift
-      cell.neighbors { |neighbor| queue<< neighbor }
+      cell.neighbors do |neighbor|
+        unless visited.index(neighbor.id)
+          queue<< neighbor
+          visited<< neighbor.id
+        end
+      end
       cell.update_attribute(:color, color)
     end
-    self if self.save
+    self.save
+    self.reload
   end
 
   private

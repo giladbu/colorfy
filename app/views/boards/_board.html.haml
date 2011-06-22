@@ -1,5 +1,4 @@
-.cells.span-16.prepend-4.prepend-top
-  - @board.cells.each do |cell|
-    - klass = cell_class(@board, cell)
-    %div.cell{:class => klass}
-      &nbsp;
+- @board.cells.each do |cell|
+  - klass = cell_class(@board, cell)
+  %div.cell{:class => klass}
+    &nbsp;
