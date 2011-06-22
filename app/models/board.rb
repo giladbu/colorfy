@@ -5,8 +5,7 @@ class Board < ActiveRecord::Base
   after_create :create_cells
 
   def done?
-    p cells.group(:color).count
-    cells.group(:color).count.size == 1
+    Cell.group(:color).where(:board_id => self.id).count.size == 1
   end
 
   def move(color)
