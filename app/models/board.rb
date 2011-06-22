@@ -4,6 +4,17 @@ class Board < ActiveRecord::Base
 
   after_create :create_cells
 
+  def move(color)
+    self.step= self.step + 1
+    queue = [cells.first]
+    while queue.present? do
+      cell = queue.shift
+      cell.neighbors { |neighbor| queue<< neighbor }
+      cell.update_attribute(:color, color)
+    end
+    self if self.save
+  end
+
   private
 
   def create_cells
