@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110622055103) do
 
   create_table "boards", :force => true do |t|
-    t.integer  "step"
+    t.integer  "step",       :default => 0
     t.integer  "size"
     t.datetime "created_at"
     t.datetime "updated_at"
