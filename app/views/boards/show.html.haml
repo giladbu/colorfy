@@ -1,15 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Step:</b>
-  <%= @board.step %>
-</p>
-
-<p>
-  <b>Size:</b>
-  <%= @board.size %>
-</p>
-
-
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+%p{:id=>"notice"}= notice
+.cells.span-16.prepend-4
+  - @board.cells.each do |cell|
+    - klass = cell_class(@board, cell)
+    %div.cell{:class => klass}
+      &nbsp;

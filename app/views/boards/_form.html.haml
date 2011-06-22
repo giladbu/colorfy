@@ -1,25 +1,18 @@
-<%= form_for(@board) do |f| %>
-  <% if @board.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+= form_for(@board) do |f|
+  - if @board.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@board.errors.count, "error")
+        prohibited this board from being saved:
 
-      <ul>
-      <% @board.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      %ul
+        - @board.errors.full_messages.each do |msg|
+          %li= msg
 
-  <div class="field">
-    <%= f.label :step %><br />
-    <%= f.text_field :step %>
-  </div>
-  <div class="field">
-    <%= f.label :size %><br />
-    <%= f.text_field :size %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  .field
+    = f.label :size, "Level"
+    %br.clear
+    = f.number_field :size, :size => 4, :value => 4
+    
+  .actions
+    = f.submit

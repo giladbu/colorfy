@@ -1,0 +1,46 @@
+#main_container {
+  margin-top: 20px;
+  border: 1px solid black;
+  height: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.cell {
+  margin-right: 0px !important;
+  padding: 0px !important;
+}
+
+.cells .top {
+  border-top: 1px solid black;
+}
+
+.cells .left {
+  border-left: 1px solid black;
+}
+
+.cells .bottom {
+  border-bottom: 1px solid black;
+}
+
+.cells .last {
+  border-right: 1px solid black;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
