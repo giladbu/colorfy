@@ -49,3 +49,9 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+
+
+#main_container a,
+#main_container a:hover {
+  text-decoration: none;
+}
